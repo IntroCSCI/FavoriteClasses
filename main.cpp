@@ -1,22 +1,20 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-const int NUM_COURSES = 5;
-
 int main(){
-    string courses[NUM_COURSES];
+    vector <string> courses;
+    string entry;
+    do {
+        cout << "Your favorite course: ";
+        getline(cin, entry);
+    } while( entry != "quit" );
 
-    for(int i=0; i < NUM_COURSES; i++){
-        cout << "Your ";
-        if( i>0 ){
-            cout << "next ";
-        }
-        cout << "favorite course: ";
-        getline(cin, courses[i]);
-    }
+    courses.pop_back();
+
     cout << "RANKING\n";
-    for(int i=0; i < NUM_COURSES; i++){
-        cout << i+1 << ") " << courses[i] << endl;
+    for(size_t i=0; i < courses.size(); i++){
+        cout << i+1 << ") " << courses.at(i) << endl;
     }
     return 0;
 }
